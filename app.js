@@ -669,13 +669,9 @@
   }
 
   function sendKakao() {
+    if (CONTACT.kakao) window.open(CONTACT.kakao, "_blank", "noopener");
     copyOrderText();
-    if (CONTACT.kakao) {
-      setTimeout(() => window.open(CONTACT.kakao, "_blank", "noopener"), 650);
-      toast("주문서를 복사했습니다. 카카오톡 창에 붙여넣어 주세요.");
-    } else {
-      toast("주문서를 복사했습니다. 문자나 인스타 DM으로 보내 주세요.");
-    }
+    if (!CONTACT.kakao) toast("주문서를 복사했습니다. 문자나 인스타 DM으로 보내 주세요.");
   }
 
   /* ── 검색 ──────────────────────────────────────────────────────────────── */
