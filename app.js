@@ -463,7 +463,8 @@
   function renderProduct() {
     const p = state.product;
     if (!p) return;
-    const rate = discountRate(p);
+    const unitForRate = unitPrice(p, state.sel);
+    const rate = Number(p.price) > 0 ? Math.max(0, Math.round((1 - unitForRate / Number(p.price)) * 100)) : 0;
     const unit = unitPrice(p, state.sel);
     const total = unit * state.qty;
 
@@ -518,7 +519,6 @@
             specRows.map((r) => "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>").join("") +
             (BANK.accountNumber ? "<div><dt>입금계좌</dt><dd>" + esc(BANK.bankName || "") + " " + esc(BANK.accountNumber) + "</dd></div>" : "") +
           "</dl>" +
-          '<p class="pd__notice">' + esc(S.shippingNote || "") + "</p>" +
         "</div>" +
       "</div>";
   }
@@ -562,7 +562,7 @@
         '<div class="field full"><label for="fMemo">요청 사항</label><textarea id="fMemo" name="memo" placeholder="각인, 포장, 배송 요청 등을 적어 주세요"></textarea></div>' +
       "</form>" +
       '<div class="pay">' +
-        '<div class="pay__box"><span>🏦</span><span><b>무통장입금</b>으로 주문됩니다.<br>' +
+        '<div class="pay__box"><span><b>무통장입금</b>으로 주문됩니다.<br>' +
           esc(BANK.bankName || "은행") + " " + esc(BANK.accountNumber || "계좌번호") + " (예금주 " + esc(BANK.holder || "") + ")<br>" +
           "아래 <b>주문서 만들기</b>를 누르면 주문 내용이 정리됩니다. 그대로 복사해 카카오톡으로 보내 주세요. 확인 후 입금 안내를 드립니다.</span></div>" +
         '<div class="pay__actions">' +
