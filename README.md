@@ -154,6 +154,9 @@ shippingNote: "5만원 이상 무료배송 · 평일 2시 이전 주문 당일 �
 
 noticeBar: "신규 회원 10% 할인 · 5만원 이상 무료배송",   // 맨 위 검은 띠 문구
 noticeBarOn: true,               // false 로 바꾸면 띠가 사라집니다
+
+// SHOP 제목 아래 한 줄 소개 (categories 아래에 있습니다)
+shopDesc: "매일 손이 가는 주얼리. 실버 925와 14K 골드 plating으로 마감했습니다.",
 ```
 
 ---

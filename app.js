@@ -123,6 +123,8 @@
 
     const hero = S.hero || {};
     $("#heroMedia").innerHTML = media(hero.image, hero.label || "MAIN BANNER", hero.sizeGuide || "권장 1600 × 900");
+    const heroImg = $("#heroMedia img");
+    if (heroImg) { heroImg.setAttribute("loading", "eager"); heroImg.setAttribute("fetchpriority", "high"); }
     $("#heroEyebrow").textContent = hero.eyebrow || "";
     $("#heroTitle").textContent = hero.title || "";
     $("#heroDesc").textContent = hero.desc || "";
@@ -139,7 +141,7 @@
     const one = words.map((w) => "<span>" + esc(w) + "</span>").join("");
     strip.innerHTML = one + one;
 
-    $("#shopDesc").textContent = S.shippingNote || "";
+    $("#shopDesc").textContent = D.shopDesc || S.shippingNote || "";
 
     const brand = D.brand || {};
     $("#brandStatement").textContent = brand.statement || "";
@@ -187,10 +189,9 @@
   /* ── 카테고리 탭 / 상품 그리드 ──────────────────────────────────────────── */
   function renderTabs() {
     $("#tabs").innerHTML = CATS.map((c) => {
-      const n = c === "ALL" ? PRODUCTS.length : PRODUCTS.filter((p) => p.category === c).length;
       return (
         '<button class="tab' + (c === state.cat ? " is-on" : "") + '" data-cat="' + esc(c) + '" type="button" aria-pressed="' +
-        (c === state.cat) + '">' + esc(c) + " <span style='font-size:9px;opacity:.55'>" + (n || "") + "</span></button>"
+        (c === state.cat) + '">' + esc(c) + "</button>"
       );
     }).join("");
   }
@@ -262,7 +263,6 @@
   }
 
   function renderCollections() {
-    const hero = S.hero || {};
     const photo1 = (S.collection && S.collection[0] && S.collection[0].image) || "";
     const photo2 = (S.collection && S.collection[1] && S.collection[1].image) || "";
     const items = [
@@ -281,7 +281,6 @@
         cat: "EARRING"
       }
     ];
-    void 0;
     $("#collectionGrid").innerHTML = items.map((it, i) =>
       '<a class="tile" href="#shop" data-cat="' + esc(it.cat) + '">' +
         media(it.image, "COLLECTION PHOTO 0" + (i + 1), "권장 1200 × 900") +
@@ -294,8 +293,10 @@
 
   /* ── 열기/닫기 공통 ────────────────────────────────────────────────────── */
   const dim = $("#dim");
+  let dimTimer = null;
 
   function openLayer(el) {
+    clearTimeout(dimTimer);
     dim.hidden = false;
     requestAnimationFrame(() => dim.classList.add("is-on"));
     el.classList.add("is-open");
@@ -311,7 +312,8 @@
       el.setAttribute("aria-hidden", "true");
     });
     dim.classList.remove("is-on");
-    setTimeout(() => { dim.hidden = true; }, 320);
+    clearTimeout(dimTimer);
+    dimTimer = setTimeout(() => { dim.hidden = true; }, 320);
     document.body.classList.remove("lock");
     $("#menuBtn").setAttribute("aria-expanded", "false");
   }
