@@ -220,10 +220,12 @@ footer: {
 
 ## 11. 사이트 주소 (GitHub Pages)
 
-이 사이트는 GitHub Pages로 올려 두었습니다.
+이 사이트는 GitHub Pages로 배포되어 있습니다.
 
 - 주소: `https://amen5104-cmd.github.io/mj-atelier/`
 - 저장소: `https://github.com/amen5104-cmd/mj-atelier`
+
+> 주소를 열었을 때 404가 나오면 저장소 → **Settings → Pages → Source: Deploy from a branch → `main` / `/ (root)` → Save** 를 한 번만 눌러 주세요. 1~2분 뒤 열립니다.
 
 **수정한 내용을 다시 올리는 법** (컴퓨터에서)
 ```bash
