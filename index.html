@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MJ ATELIER | MJ 주얼리</title>
+<meta name="description" content="MJ ATELIER — 매일의 빛을 담는 실버 925 주얼리. 네크리스, 이어링, 링, 브레이슬릿.">
+<meta property="og:title" content="MJ ATELIER | MJ 주얼리">
+<meta property="og:description" content="매일의 빛을 담는 실버 925 주얼리">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FAF9F6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231A1A1A'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23FAF9F6' text-anchor='middle'%3EMJ%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== 맨 위 공지 바 ===== -->
+<div class="notice" id="noticeBar">
+  <div class="notice__track"><span id="noticeText"></span></div>
+  <button class="notice__close" id="noticeClose" aria-label="공지 닫기">×</button>
+</div>
+
+<!-- ===== 헤더 ===== -->
+<header class="hdr" id="header">
+  <button class="hdr__btn hdr__menu" id="menuBtn" aria-label="메뉴 열기" aria-expanded="false">
+    <span class="burger"><i></i><i></i><i></i></span>
+  </button>
+
+  <a class="hdr__logo" href="#top" aria-label="MJ ATELIER 홈">
+    <span class="hdr__logo-main" id="brandLogo">MJ ATELIER</span>
+    <span class="hdr__logo-sub" id="brandSub">MJ 주얼리</span>
+  </a>
+
+  <div class="hdr__actions">
+    <button class="hdr__btn" id="searchBtn" aria-label="상품 검색">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+    </button>
+    <button class="hdr__btn" id="cartBtn" aria-label="장바구니 열기">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9.5 8V6.5a2.5 2.5 0 0 1 5 0V8"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== 히어로 ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__media" id="heroMedia"></div>
+    <div class="hero__copy">
+      <p class="hero__eyebrow" id="heroEyebrow"></p>
+      <h1 class="hero__title" id="heroTitle"></h1>
+      <p class="hero__desc" id="heroDesc"></p>
+      <a class="btn btn--dark hero__btn" href="#shop" id="heroBtn"></a>
+    </div>
+    <span class="hero__scroll" aria-hidden="true">SCROLL</span>
+  </section>
+
+  <!-- ===== 브랜드 문장 띠 ===== -->
+  <div class="strip" aria-hidden="true">
+    <div class="strip__track" id="stripTrack"></div>
+  </div>
+
+  <!-- ===== SHOP ===== -->
+  <section class="shop" id="shop">
+    <div class="section-head">
+      <h2 class="section-head__title">SHOP</h2>
+      <p class="section-head__desc" id="shopDesc">매일 손이 가는 주얼리. 실버 925와 14K 골드 plating으로 마감했습니다.</p>
+    </div>
+
+    <nav class="tabs" id="tabs" aria-label="카테고리"></nav>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="more-wrap">
+      <button class="btn btn--ghost" id="moreBtn" type="button">MORE <span class="plus">+</span></button>
+    </div>
+  </section>
+
+  <!-- ===== COLLECTION ===== -->
+  <section class="collection" id="collection">
+    <div class="section-head section-head--left">
+      <h2 class="section-head__title">COLLECTION</h2>
+    </div>
+    <div class="collection__grid" id="collectionGrid"></div>
+  </section>
+
+  <!-- ===== BRAND ===== -->
+  <section class="brand" id="brand">
+    <p class="brand__statement" id="brandStatement"></p>
+    <h2 class="brand__title" id="brandIntro"></h2>
+    <p class="brand__sub" id="brandIntroSub"></p>
+    <ul class="brand__points" id="brandPoints"></ul>
+  </section>
+
+  <!-- ===== 주문 안내 ===== -->
+  <section class="guide" id="guide">
+    <h2 class="guide__title">ORDER &amp; SHIPPING</h2>
+    <div class="guide__grid">
+      <div class="guide__item">
+        <h3>01. 주문</h3>
+        <p>장바구니에 담은 뒤 <b>주문하기</b>를 누르면 주문서가 만들어집니다. 주문서를 복사해 카카오톡으로 보내 주시면 확인 후 입금 안내를 드립니다.</p>
+      </div>
+      <div class="guide__item">
+        <h3>02. 입금</h3>
+        <p id="guideBank">무통장입금으로 진행됩니다. 입금자명이 다를 경우 꼭 미리 알려 주세요.</p>
+      </div>
+      <div class="guide__item">
+        <h3>03. 배송</h3>
+        <p id="guideShip">평일 오후 2시 이전 결제 확인 시 당일 발송됩니다. 5만원 이상 주문은 배송비가 무료입니다.</p>
+      </div>
+      <div class="guide__item">
+        <h3>04. 교환·반품</h3>
+        <p>수령 후 7일 이내에 문의해 주시면 도와드립니다. 착용 흔적이 있거나 각인·주문제작 상품은 교환·반품이 어렵습니다.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 푸터 ===== -->
+<footer class="ft">
+  <div class="ft__top">
+    <div class="ft__brand">
+      <p class="ft__logo" id="ftLogo">MJ ATELIER</p>
+      <p class="ft__tagline">SILVER 925 · HAND FINISHED</p>
+    </div>
+    <nav class="ft__cols" aria-label="푸터 메뉴">
+      <div class="ft__col">
+        <h3>SHOP</h3>
+        <ul id="ftShop"></ul>
+      </div>
+      <div class="ft__col">
+        <h3>COLLECTION</h3>
+        <ul>
+          <li><a href="#collection">Silver 925</a></li>
+          <li><a href="#collection">14K Gold Plating</a></li>
+          <li><a href="#brand">Brand Story</a></li>
+        </ul>
+      </div>
+      <div class="ft__col">
+        <h3>BRAND</h3>
+        <ul>
+          <li><a href="#brand">브랜드 소개</a></li>
+          <li><a href="#guide">주문·배송 안내</a></li>
+          <li><a href="#guide">교환·반품 안내</a></li>
+        </ul>
+      </div>
+      <div class="ft__col">
+        <h3>CUSTOMER</h3>
+        <ul id="ftCustomer"></ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="ft__info" id="ftInfo"></div>
+  <p class="ft__copy" id="ftCopy"></p>
+</footer>
+
+<!-- ===== 오버레이 / 드로어 / 모달 ===== -->
+<div class="dim" id="dim" hidden></div>
+
+<!-- 메뉴 드로어 -->
+<aside class="drawer drawer--menu" id="menuDrawer" aria-hidden="true" aria-label="메뉴">
+  <div class="drawer__head">
+    <p class="drawer__title">MENU</p>
+    <button class="icon-btn" data-close aria-label="메뉴 닫기">×</button>
+  </div>
+  <nav class="menu" id="menuNav"></nav>
+  <div class="drawer__foot" id="menuFoot"></div>
+</aside>
+
+<!-- 장바구니 드로어 -->
+<aside class="drawer drawer--cart" id="cartDrawer" aria-hidden="true" aria-label="장바구니">
+  <div class="drawer__head">
+    <p class="drawer__title">CART <span id="cartTitleCount">(0)</span></p>
+    <button class="icon-btn" data-close aria-label="장바구니 닫기">×</button>
+  </div>
+
+  <div class="cart__body" id="cartList"></div>
+
+  <div class="cart__foot">
+    <div class="shipbar" id="shipBar">
+      <p class="shipbar__text" id="shipBarText"></p>
+      <div class="shipbar__bar"><i id="shipBarFill"></i></div>
+    </div>
+    <dl class="sum">
+      <div><dt>상품 합계</dt><dd id="sumGoods">0원</dd></div>
+      <div><dt>배송비</dt><dd id="sumShip">0원</dd></div>
+      <div class="sum__total"><dt>결제 예상 금액</dt><dd id="sumTotal">0원</dd></div>
+    </dl>
+    <button class="btn btn--dark btn--block" id="goOrder" type="button">주문하기</button>
+    <button class="btn btn--text btn--block" id="continueShop" type="button">계속 쇼핑하기</button>
+  </div>
+</aside>
+
+<!-- 검색 -->
+<div class="search" id="searchPanel" aria-hidden="true">
+  <div class="search__head">
+    <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+    <input class="search__input" id="searchInput" type="search" placeholder="상품명 또는 카테고리로 검색" autocomplete="off">
+    <button class="icon-btn" data-close aria-label="검색 닫기">×</button>
+  </div>
+  <div class="search__body" id="searchResults"></div>
+</div>
+
+<!-- 상품 상세 -->
+<div class="modal modal--product" id="productModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="상품 상세">
+  <div class="modal__panel" id="productPanel"></div>
+</div>
+
+<!-- 주문서 -->
+<div class="modal modal--order" id="orderModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="주문서">
+  <div class="modal__panel modal__panel--order">
+    <div class="order__head">
+      <h2 class="order__title">ORDER</h2>
+      <button class="icon-btn" data-close aria-label="주문서 닫기">×</button>
+    </div>
+    <div class="order__body" id="orderBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
