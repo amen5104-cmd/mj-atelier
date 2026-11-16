@@ -131,7 +131,7 @@ input, textarea, select{ font: inherit; color: inherit; }
   opacity: .62;
 }
 .ph__label{
-  font-size: 8.5px; letter-spacing: .3em; text-indent: .3em; text-transform: uppercase;
+  font-size: 8.5px; letter-spacing: .26em; text-indent: .26em; text-transform: uppercase;
   color: #9C9281;
 }
 .ph__size{
@@ -381,6 +381,7 @@ section{ scroll-margin-top: var(--hdr-h); }
 .card__name{
   margin-top: 7px; font-family: var(--serif); font-size: 14px; font-weight: 500;
   letter-spacing: .16em; line-height: 1.4; text-transform: uppercase; color: var(--obsidian);
+  min-height: 2.8em;   /* 한 줄·두 줄 상품명이 섞여도 아래 정보가 같은 높이에서 시작 */
 }
 .card__ko{
   margin-top: 4px; font-size: 11px; letter-spacing: .02em; color: var(--muted);
@@ -570,7 +571,7 @@ section{ scroll-margin-top: var(--hdr-h); }
 .citem__media .ph{ gap: 4px; padding: 6px; }
 .citem__media .ph::before{ display: none; }
 .citem__media .ph svg{ display: none; }
-.citem__media .ph__label{ font-size: 6.5px; letter-spacing: .14em; }
+.citem__media .ph__label{ font-size: 6.5px; letter-spacing: .08em; white-space: nowrap; }
 .citem__media .ph__size{ display: none; }
 .citem__name{
   font-family: var(--serif); font-size: 13px; font-weight: 500; letter-spacing: .14em;
@@ -641,7 +642,7 @@ section{ scroll-margin-top: var(--hdr-h); }
 .sresult__media{ position: relative; width: 56px; aspect-ratio: 4/5; background: var(--stone); overflow: hidden; border: 1px solid var(--line); }
 .sresult__media .ph::before{ display: none; }
 .sresult__media .ph svg{ display: none; }
-.sresult__media .ph__label{ font-size: 6px; letter-spacing: .1em; }
+.sresult__media .ph__label{ font-size: 6px; letter-spacing: .06em; white-space: nowrap; }
 .sresult__media .ph__size{ display: none; }
 .sresult__name{
   font-family: var(--serif); font-size: 13px; font-weight: 500; letter-spacing: .14em;
@@ -683,11 +684,17 @@ section{ scroll-margin-top: var(--hdr-h); }
 @media (min-width: 880px){ .pd{ grid-template-columns: 1.02fr 1fr; } }
 
 .pd__media{ position: relative; aspect-ratio: 1/1; background: var(--stone); border-right: 1px solid var(--line); }
-@media (min-width: 880px){ .pd__media{ aspect-ratio: 4/5; } }
+@media (min-width: 880px){
+  /* 사진이 정보 높이에 맞춰 꽉 차고, 긴 설명에서도 버튼이 화면 안에 들어오도록 */
+  .pd__media{ aspect-ratio: auto; min-height: 540px; }
+}
+@media (max-width: 879px){
+  .pd__media{ border-right: 0; border-bottom: 1px solid var(--line); }
+}
 .pd__media .ph{ border: 0; }
 
 .pd__info{ padding: 30px 24px 40px; }
-@media (min-width: 880px){ .pd__info{ padding: 54px 52px 56px; } }
+@media (min-width: 880px){ .pd__info{ padding: 44px 48px 46px; } }
 
 .pd__close{
   position: absolute; top: 10px; right: 10px; z-index: 5;
@@ -710,11 +717,11 @@ section{ scroll-margin-top: var(--hdr-h); }
 .pd__price em{ font-style: normal; font-size: 9px; letter-spacing: .18em; color: #8D5B43; }
 
 .pd__desc{
-  margin-top: 22px; font-size: 12px; line-height: 2; color: #6E675C; word-break: keep-all;
-  padding-top: 20px; border-top: var(--hair);
+  margin-top: 20px; font-size: 12px; line-height: 1.95; color: #6E675C; word-break: keep-all;
+  padding-top: 18px; border-top: var(--hair);
 }
 
-.opt-group{ margin-top: 26px; }
+.opt-group{ margin-top: 24px; }
 .opt-group__label{ font-size: 9px; letter-spacing: .26em; color: var(--muted); text-transform: uppercase; }
 .opt-values{ display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
 .opt{
@@ -726,15 +733,15 @@ section{ scroll-margin-top: var(--hdr-h); }
 .opt.is-on{ background: var(--obsidian); border-color: var(--obsidian); color: #F7F3EC; }
 .opt small{ font-size: 9px; opacity: .66; margin-left: 5px; }
 
-.pd__qty{ margin-top: 28px; display: flex; align-items: center; justify-content: space-between; }
+.pd__qty{ margin-top: 24px; display: flex; align-items: center; justify-content: space-between; }
 .pd__qty-label{ font-size: 9px; letter-spacing: .26em; color: var(--muted); text-transform: uppercase; }
-.pd__total{ margin-top: 22px; padding-top: 18px; border-top: var(--hair); display: flex; align-items: baseline; justify-content: space-between; }
+.pd__total{ margin-top: 18px; padding-top: 16px; border-top: var(--hair); display: flex; align-items: baseline; justify-content: space-between; }
 .pd__total span{ font-size: 10px; letter-spacing: .2em; color: var(--muted); text-transform: uppercase; }
 .pd__total b{ font-family: var(--serif); font-size: 24px; font-weight: 500; font-variant-numeric: tabular-nums; }
 .pd__actions{ margin-top: 22px; display: grid; gap: 9px; }
 @media (min-width: 480px){ .pd__actions{ grid-template-columns: 1fr 1fr; } }
 
-.pd__spec{ margin-top: 32px; padding-top: 22px; border-top: var(--hair); display: grid; gap: 9px; }
+.pd__spec{ margin-top: 26px; padding-top: 20px; border-top: var(--hair); display: grid; gap: 9px; }
 .pd__spec div{ display: flex; gap: 12px; font-size: 10.5px; color: #6E675C; }
 .pd__spec dt{ flex: 0 0 66px; color: var(--faint); letter-spacing: .14em; }
 .pd__spec dd{ margin: 0; word-break: keep-all; }
@@ -770,7 +777,7 @@ section{ scroll-margin-top: var(--hdr-h); }
 
 .order__form{ margin-top: 28px; display: grid; gap: 20px; }
 @media (min-width: 600px){ .order__form{ grid-template-columns: 1fr 1fr; } .order__form .full{ grid-column: 1 / -1; } }
-.field label{ display: block; font-size: 9px; letter-spacing: .22em; color: var(--muted); text-transform: uppercase; }
+.field label{ display: block; font-size: 9.5px; letter-spacing: .18em; color: #7C7568; text-transform: uppercase; }
 .field input, .field textarea{
   width: 100%; margin-top: 7px; padding: 10px 2px;
   border: 0; border-bottom: 1px solid var(--line-2); background: transparent;
