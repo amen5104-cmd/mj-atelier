@@ -26,9 +26,11 @@
 
   /* ── 타이포그래피 ─────────────────────────────────────────────────────── */
   --serif:    "Cormorant Garamond", "Bodoni Moda", "Didot", "Times New Roman", serif;
-  --serif-kr: "Noto Serif KR", "Cormorant Garamond", "Nanum Myeongjo", serif;
   --sans:     "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
               "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  /* 한글 디스플레이 카피 — 명조 대신 얇은 모던 산세리프(부티크 감성) */
+  --display-kr: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+                "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
 
   --ease: cubic-bezier(.22,.61,.36,1);
   --hair: 1px solid var(--line);
@@ -258,12 +260,13 @@ input, textarea, select{ font: inherit; color: inherit; }
 }
 .hero__title{
   margin-top: 18px;
-  font-family: var(--serif-kr); font-size: clamp(24px, 6.2vw, 32px);
-  font-weight: 300; line-height: 1.5; letter-spacing: .015em;
+  font-family: var(--display-kr);
+  font-size: clamp(25px, 6.4vw, 33px);
+  font-weight: 300; line-height: 1.44; letter-spacing: -.03em;
   word-break: keep-all; text-wrap: balance; color: var(--obsidian);
 }
 .hero__desc{
-  margin-top: 14px; font-size: 12.5px; line-height: 1.85; letter-spacing: -.005em;
+  margin-top: 15px; font-size: 12.5px; line-height: 1.82; letter-spacing: -.02em;
   color: var(--muted); word-break: keep-all;
 }
 .hero__btn{ margin-top: 24px; min-height: 46px; padding: 0 28px; letter-spacing: .22em; }
@@ -274,8 +277,8 @@ input, textarea, select{ font: inherit; color: inherit; }
 }
 @media (min-width: 900px){
   .hero__copy{ left: var(--pad); right: auto; bottom: 64px; padding: 46px 42px 44px; max-width: 480px; }
-  .hero__title{ font-size: 40px; margin-top: 22px; }
-  .hero__desc{ font-size: 13px; margin-top: 16px; }
+  .hero__title{ font-size: 42px; font-weight: 250; letter-spacing: -.032em; margin-top: 22px; line-height: 1.4; }
+  .hero__desc{ font-size: 13px; margin-top: 16px; letter-spacing: -.02em; }
   .hero__scroll{ display: block; }
 }
 
@@ -313,7 +316,7 @@ section{ scroll-margin-top: var(--hdr-h); }
 }
 .section-head--left .section-head__title::after{ margin-left: 0; }
 .section-head__desc{
-  margin-top: 18px; font-size: 12px; line-height: 1.85; letter-spacing: -.005em;
+  margin-top: 18px; font-size: 12px; line-height: 1.85; letter-spacing: -.02em;
   color: var(--muted); word-break: keep-all;
 }
 
@@ -436,13 +439,13 @@ section{ scroll-margin-top: var(--hdr-h); }
   font-size: 8.5px; letter-spacing: .42em; text-indent: .42em; color: var(--gold); text-transform: uppercase;
 }
 .brand__title{
-  margin: 26px auto 0; max-width: 660px; font-family: var(--serif-kr); font-weight: 300;
-  font-size: clamp(21px, 4.4vw, 31px); line-height: 1.65; letter-spacing: .01em;
+  margin: 26px auto 0; max-width: 700px; font-family: var(--display-kr); font-weight: 300;
+  font-size: clamp(22px, 4.4vw, 32px); line-height: 1.55; letter-spacing: -.03em;
   word-break: keep-all; text-wrap: balance; color: var(--obsidian);
 }
 .brand__sub{
-  margin: 20px auto 0; max-width: 520px; font-size: 12.5px; color: var(--muted);
-  line-height: 1.95; word-break: keep-all;
+  margin: 22px auto 0; max-width: 520px; font-size: 12.5px; color: var(--muted);
+  line-height: 1.95; letter-spacing: -.02em; word-break: keep-all;
 }
 .brand__points{
   display: grid; gap: 0; margin: 58px auto 0; max-width: 920px; text-align: left;
@@ -477,7 +480,7 @@ section{ scroll-margin-top: var(--hdr-h); }
   font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: .26em;
   color: var(--gold); text-transform: uppercase;
 }
-.guide__item p{ margin-top: 12px; font-size: 11.5px; line-height: 1.95; color: #6E675C; word-break: keep-all; }
+.guide__item p{ margin-top: 12px; font-size: 11.5px; line-height: 1.95; letter-spacing: -.015em; color: #6E675C; word-break: keep-all; }
 .guide__item b{ color: var(--obsidian); font-weight: 500; }
 
 /* ── 푸터 ────────────────────────────────────────────────────────────────── */
