@@ -27,7 +27,7 @@
     );
 
   const PH_ICON =
-    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1"/><circle cx="8.4" cy="10.2" r="1.5"/><path d="M4 17.2l4.8-4.2 4 3.4 3-2.6 4.2 3.4"/></svg>';
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6 20.4 9 12 21.4 3.6 9 12 2.6Z"/><path d="M3.6 9h16.8"/><path d="M12 2.6 8.6 9l3.4 12.4L15.4 9 12 2.6Z"/><path d="M8.6 9 12 21.4M15.4 9 12 21.4"/></svg>';
 
   /** 사진이 있으면 사진, 없으면 깔끔한 빈 자리 */
   function media(src, label, size) {
